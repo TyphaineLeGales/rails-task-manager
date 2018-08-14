@@ -1,10 +1,14 @@
 <h1 style="margin:20px;">My Tasks</h1>
 <div style="margin:30px;" class="form-content">
-<% @tasks.each do |task| %>
-<input type="checkbox" style="padding:10px"> <%= link_to "#{task.title}", task_path(task.id)%> <br>
-<% end %>
+  <% @tasks.each do |task| %>
+    <p>
+      <input type="checkbox" style="padding:10px" >
+      <%= link_to "#{task.title}", task_path(task.id)%>
+      <%= link_to destroy_path(task.id), method: :delete do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </p>
+  <% end %>
   <i class="fas fa-plus"> <%= link_to "Add a new task",  tasks_new_path %>  </i>
 </div>
-
-
 
