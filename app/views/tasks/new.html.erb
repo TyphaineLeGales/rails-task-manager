@@ -1,13 +1,12 @@
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
 <div class="form-content">
   <h1 style="margin:20px;">New Task</h1>
   <div style="margin:20px;" class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <form style="padding:10px;"action="">
-        <input class="form-control" type="text" name="title" placeholder="title">
-        <input type="text" class="form-control" name="details" placeholder="details">
+      <form style="padding:10px;"action="/tasks" method="post">
+         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <input class="form-control" type="text" name="task[title]" placeholder="title">
+        <input type="text" class="form-control" name="task[details]" placeholder="details">
         <input type="submit" class="btn-primary">
       </form>
     </div>

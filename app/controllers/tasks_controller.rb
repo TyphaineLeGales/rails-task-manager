@@ -11,5 +11,19 @@ class TasksController < ApplicationController
   end
 
   def create
+    allowed_params = params.require(:task).permit(:title, :details)
+    @task = Task.create!(allowed_params)
+    redirect_to tasks_path
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+  @task = Task.find(params[:id])
+  allowed_params = params.require(:task).permit(:title, :details)
+   @task.update(allowed_params)
+   redirect_to tasks_path(@task.id)
   end
 end

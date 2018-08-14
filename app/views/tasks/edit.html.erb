@@ -1,0 +1,12 @@
+<h1 style="margin:20px;"><%= @task.title %></h1>
+<div style="margin:30px;" class="form-content">
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title%>
+
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+
+  <%= f.submit %>
+<% end %>
+</div>
